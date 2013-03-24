@@ -1,0 +1,6 @@
+0 - forma dwuno¿na
+1 - 31 - z dwuno¿nej w lataj¹c¹
+32 - forma lataj¹ca
+33 - 63 - z latajacej do stacjonarnej
+64 - forma stacjonarna
+65 - 95 - z stacjonarnej do dwuno¿nej
