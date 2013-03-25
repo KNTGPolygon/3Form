@@ -11,9 +11,9 @@ public class Player : Pawn {
 	new void Update () {	
 	}
 	
-	void turn() { //TODO
+	void setDesiredMoveDirection(Vector3 direction) { //TODO
 	}
 	
-	void move() { //TODO
+	void setDesiredRotation(Quaternion rotation) { //TODO
 	}
 }
