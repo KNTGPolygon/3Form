@@ -2,18 +2,36 @@ using UnityEngine;
 using System.Collections;
 
 public class Player : Pawn {
-
-	// Use this for initialization
-	new void Start () {	
+	
+	Vector3 desiredMoveDirection = new Vector3(0,0);
+	public float maxSpeed = 10;
+	public float timeToMaxSpeed = 3;
+	private float accelerationRate;
+	//public float directionToForceRatio = 10;
+	
+	protected override void Start ()
+	{
+		base.Start ();
+		accelerationRate = maxSpeed/timeToMaxSpeed + collider.material.dynamicFriction*Physics.gravity.magnitude*2;
 	}
 	
-	// Update is called once per frame
-	new void Update () {	
+	
+	public void setDesiredMoveDirection(Vector3 direction) { 
+		//TODO: implement proper inertia movement
+		desiredMoveDirection = direction;
 	}
 	
-	public void setDesiredMoveDirection(Vector3 direction) { //TODO
+	public void setDesiredRotation(Quaternion rotation) { 
+		//TODO: implement proper inertia movement
 	}
 	
-	public void setDesiredRotation(Quaternion rotation) { //TODO
+	void FixedUpdate() {
+		float acceleration;
+		if (rigidbody.velocity.magnitude > maxSpeed) acceleration = 0;
+		else acceleration = this.accelerationRate;
+		rigidbody.AddForce(desiredMoveDirection*acceleration, ForceMode.Acceleration);
+		//float force = enginePower / rigidbody.velocity.magnitude;
+		//rigidbody.AddForce(desiredMoveDirection*force, ForceMode.Force);
+		print(rigidbody.velocity);
 	}
 }

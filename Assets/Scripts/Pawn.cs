@@ -7,10 +7,10 @@ abstract public class Pawn : MonoBehaviour {
 	protected double hp = 100;
 	
 	// Use this for initialization
-	protected void Start () {}	
+	protected virtual void Start () {}	
 	
 	// Update is called once per frame
-	protected void Update () {}
+	protected virtual void Update () {}
 	
 	public void takeDamage(float damage) {
 		hp -= damage; }
