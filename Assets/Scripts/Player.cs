@@ -5,8 +5,7 @@ public class Player : Pawn
 {
 	public float upperBodyTurnRate = 20;
 	Quaternion desiredRotation = Quaternion.identity;
-
-		
+	
 	public void setDesiredRotation (Quaternion rotation)
 	{ 
 		desiredRotation = rotation;
