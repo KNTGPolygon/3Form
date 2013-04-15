@@ -5,15 +5,15 @@ abstract public class Controller : MonoBehaviour {
 	
 	public Player player;
 	
-	// Use this for initialization
 	void Start () {}
 	
-	// Update is called once per frame
 	void Update () {
+		processFire ();
 		processMove ();
 		processTurn ();
 	}	
 
 	abstract protected void processMove();
 	abstract protected void processTurn();
+	abstract protected void processFire();
 }

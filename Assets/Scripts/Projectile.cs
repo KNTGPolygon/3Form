@@ -3,14 +3,10 @@ using System.Collections;
 
 abstract public class Projectile : MonoBehaviour {
 	
-	public Weapon weapon;
-	protected double mass;
-	// Use this for initialization
-	void Start () {
-	}
+	float lifeSpan = 5;
 	
-	// Update is called once per frame
-	void Update () {
+	protected virtual void Start() {
+		Destroy (gameObject,lifeSpan);
 	}
 	
 	protected abstract void OnCollisionEnter();

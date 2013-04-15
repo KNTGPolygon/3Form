@@ -4,6 +4,7 @@ using System.Collections;
 abstract public class Weapon : MonoBehaviour {
 	
 	public Projectile projectile;
+	public Transform projectileSpawnLocation;
 	// Use this for initialization
 	void Start () {
 	}
