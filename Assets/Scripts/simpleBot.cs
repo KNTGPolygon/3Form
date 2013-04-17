@@ -7,6 +7,7 @@ public class simpleBot : Bot
 	// Use this for initialization
 	new void Start ()
 	{	
+		model=gameObject.rigidbody;
 	}
 	
 	// Update is called once per frame

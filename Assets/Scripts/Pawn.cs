@@ -11,6 +11,7 @@ abstract public class Pawn : MonoBehaviour
 	protected float armor = 0;
 	Vector3 desiredMoveDirection = Vector3.zero;
 	float accelerationRate;
+	public Rigidbody model;
 	
 	public void takeDamage (float damage)
 	{
@@ -37,6 +38,7 @@ abstract public class Pawn : MonoBehaviour
 	protected virtual void Start ()
 	{
 		accelerationRate = maxSpeed / timeToMaxSpeed + collider.material.dynamicFriction * Physics.gravity.magnitude * 2;
+		Debug.Log(model);
 	}
 	
 	protected virtual void Update ()
@@ -51,10 +53,10 @@ abstract public class Pawn : MonoBehaviour
 	void ProcessMove ()
 	{
 		float acceleration;
-		if (rigidbody.velocity.magnitude > maxSpeed)
+		if (model.velocity.magnitude > maxSpeed)
 			acceleration = 0;
 		else
 			acceleration = this.accelerationRate;
-		rigidbody.AddForce (desiredMoveDirection * acceleration, ForceMode.Acceleration);
+		model.AddForce (desiredMoveDirection * acceleration, ForceMode.Acceleration);
 	}
 }
