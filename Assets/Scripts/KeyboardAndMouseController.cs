@@ -19,13 +19,15 @@ public class KeyboardAndMouseController : Controller {
 			player.setDesiredRotation (Quaternion.LookRotation(relativePos));
 		}
 	}
+
 	protected override void processFire ()
 	{
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-      	RaycastHit hit;
-		if (Physics.Raycast(ray, out hit, 100)) {
-			Vector3 relativePos = hit.point - player.transform.position;
-			player.setDesiredRotation (Quaternion.LookRotation(relativePos));
+		if (Input.GetButtonDown("Fire1")) {	
+			player.weapons[0].pushTrigger ();
+		}
+
+		if (Input.GetButtonDown("Fire2")) {	
+			player.weapons[1].pushTrigger ();
 		}
 	}
 }
