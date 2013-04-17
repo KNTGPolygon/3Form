@@ -19,4 +19,15 @@ public class KeyboardAndMouseController : Controller {
 			player.setDesiredRotation (Quaternion.LookRotation(relativePos));
 		}
 	}
+
+	protected override void processFire ()
+	{
+		if (Input.GetButtonDown("Fire1")) {	
+			player.weapons[0].pushTrigger ();
+		}
+
+		if (Input.GetButtonDown("Fire2")) {	
+			player.weapons[1].pushTrigger ();
+		}
+	}
 }
